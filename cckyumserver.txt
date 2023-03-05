@@ -1,0 +1,12 @@
+cckyumserver.repo  redhat.repo
+[root@localhost yum.repos.d]# cat cckyumserver.repo
+[path-1]
+name=This is CCK local BaseOS repo directory.
+baseurl=file:///home/CCK-03/BaseOS
+enabled=1
+gpgcheck=0
+[path-2]
+name=This is CCK local AppStream repo directory.
+baseurl=file:////home/CCK-03/AppStream
+enabled=1
+gpgcheck=0
