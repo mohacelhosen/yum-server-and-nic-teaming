@@ -1,0 +1,29 @@
+step1:   Active the network interface card
+
+step2:   check the ip information "ifconfig"
+
+step2.1: check the connection "nmcli connection show"
+
+step3:   delete existing connection "nmcli connection delete connection_name"
+
+step3.1: check again the connection "nmcli connection show"
+
+step4:   nmcli connection add type team con-name CCK-03 ifname CCK-03 config '{"runner": {"name": "activebackup"}}'
+
+step5: to check team "ifconfig"
+
+step6: update an ip of your team "nmcli connection modify connection_name ipv4.addresses '192.168.1.100/24' ipv4.method manual
+
+step7: "ifdown connection_name
+step8:ifup connection_name
+step9: check whether ip update or not
+
+step10: nmcli connection add type team-slave con-name cck-slave1 ifname landCardName(enp0s3) master connection_name
+
+step11: nmcli connection add type team-slave con-name cck-slave2 ifname landCardName(enp0s8) master connection_name
+
+step12: check master-slave connection "nmcli connection show"
+
+Final Step: check status "teamdctl connection_name state"
+
+
